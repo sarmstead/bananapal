@@ -1,12 +1,14 @@
 <script setup lang="ts">
-const props = defineProps(['cart'])
-console.log(props.cart)
+import { useCartStore } from '@/stores/cart'
+import { storeToRefs } from 'pinia'
+const store = useCartStore()
+const { cart } = storeToRefs(store)
 </script>
 <template>
   <div class="about">
     <h1>Cart</h1>
     <section>
-      <article v-for="product in props.cart" :key="product.id">
+      <article v-for="product in cart" :key="product.id">
         <img
           :src="`${product.image}`"
           :alt="`Image of ${product.name}`"

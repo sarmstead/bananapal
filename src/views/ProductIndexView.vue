@@ -1,23 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { Ref } from 'vue'
 import products from '../../api/products.json'
+import { useCartStore } from '@/stores/cart'
 
-type Product = {
-  id: number
-  name: string
-  price: number
-  unit: string
-  image: string
-}
-
-const emit = defineEmits(['cart'])
-const cart: Ref<Product[]> = ref([])
-
-const handleAddToBasket = (product: Product) => {
-  cart.value.push(product)
-  emit('cart', cart.value)
-}
+const store = useCartStore()
+const { addToCart } = store
 </script>
 
 <template>
@@ -41,7 +27,7 @@ const handleAddToBasket = (product: Product) => {
           <h2 class="fw-bold fs-6 mb-1">{{ product.name }}</h2>
           <p class="mb-3">{{ `$${product.price} / ${product.unit}` }}</p>
 
-          <button class="btn btn-yellow" @click="handleAddToBasket(product)">Add to Basket</button>
+          <button class="btn btn-yellow" @click="addToCart(product)">Add to Basket</button>
         </article>
       </div>
     </section>

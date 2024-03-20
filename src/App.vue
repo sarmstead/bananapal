@@ -1,20 +1,12 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
+import { useCartStore } from '@/stores/cart'
+import { storeToRefs } from 'pinia'
 import FruitIcon from './components/icons/IconFruit.vue'
 import CartIcon from './components/icons/IconCart.vue'
-type Product = {
-  id: number
-  name: string
-  price: number
-  unit: string
-  image: string
-}
 
-const cart = ref()
-
-const cartCount = ref(0)
+const store = useCartStore()
+const { cart } = storeToRefs(store)
 </script>
 
 <template>
@@ -36,22 +28,14 @@ const cartCount = ref(0)
           <aside
             class="cart-count bg-yellow d-flex justify-content-center align-items-center rounded-circle fw-bold"
           >
-            {{ cartCount }}
+            {{ cart.length }}
           </aside>
         </div>
       </nav>
     </div>
   </header>
 
-  <RouterView
-    @cart="
-      (items: Product[]) => {
-        cartCount = items.length
-        cart = items
-      }
-    "
-    :cart="cart"
-  />
+  <RouterView />
 </template>
 
 <style scoped>
