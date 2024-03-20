@@ -3,7 +3,7 @@
 @import './base.scss';
 
 #app {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
@@ -14,6 +14,11 @@ a {
   color: $bp-c-navy;
   transition: 0.5s;
   padding: 3px;
+}
+
+main {
+  max-width: 954px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -28,6 +33,12 @@ a {
   --bs-btn-font-weight: 600;
   --bs-btn-color: $bp-c-navy;
   --bs-btn-border-radius: 0;
+}
+
+.form-select {
+  border-radius: 0;
+  max-width: fit-content;
+  border-color: $bp-c-navy;
 }
 
 @media (hover: hover) {

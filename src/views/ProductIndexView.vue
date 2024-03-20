@@ -7,7 +7,7 @@ const { addToCart } = store
 </script>
 
 <template>
-  <main>
+  <main class="products">
     <section class="container-fluid products">
       <div class="row justify-content-center gap-3">
         <article
