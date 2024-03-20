@@ -22,6 +22,7 @@ const { cart } = storeToRefs(store)
           </select>
           <p class="mb-3">{{ `$${product.price} / ${product.unit}` }}</p>
         </div>
+        <button @click="store.removeFromCart(product)">Remove</button>
       </article>
     </section>
   </div>
