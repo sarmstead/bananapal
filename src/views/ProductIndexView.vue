@@ -11,12 +11,12 @@ type Product = {
   image: string
 }
 
-const emit = defineEmits(['cartCount'])
+const emit = defineEmits(['cart'])
 const cart: Ref<Product[]> = ref([])
 
 const handleAddToBasket = (product: Product) => {
   cart.value.push(product)
-  emit('cartCount', cart.value.length)
+  emit('cart', cart.value)
 }
 </script>
 

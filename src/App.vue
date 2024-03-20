@@ -1,8 +1,18 @@
 <script setup lang="ts">
+import type { Ref } from 'vue'
 import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import FruitIcon from './components/icons/IconFruit.vue'
 import CartIcon from './components/icons/IconCart.vue'
+type Product = {
+  id: number
+  name: string
+  price: number
+  unit: string
+  image: string
+}
+
+const cart = ref()
 
 const cartCount = ref(0)
 </script>
@@ -10,14 +20,16 @@ const cartCount = ref(0)
 <template>
   <header class="container-fluid pb-3 mb-5 border-bottom border-blue">
     <div class="row justify-content-center justify-content-sm-between gap-3 gap-sm-0">
-      <img alt="BananaPal logo" class="logo col-sm" src="@/assets/logo.svg" />
+      <RouterLink to="/" class="logo col-sm p-0">
+        <img alt="BananaPal logo" src="@/assets/logo.svg" />
+      </RouterLink>
       <nav class="nav justify-content-center justify-content-sm-end col-sm gap-2 gap-sm-5">
-        <RouterLink to="/" class="d-flex gap-2 text-decoration-none">
+        <RouterLink to="/products" class="d-flex gap-2 text-decoration-none">
           <FruitIcon />
           <span>Products</span>
         </RouterLink>
         <div class="cart-link">
-          <RouterLink to="/about" class="d-flex gap-2 text-decoration-none">
+          <RouterLink to="/cart" class="d-flex gap-2 text-decoration-none">
             <CartIcon />
             <span>Cart</span>
           </RouterLink>
@@ -31,7 +43,15 @@ const cartCount = ref(0)
     </div>
   </header>
 
-  <RouterView @cartCount="(count: number) => (cartCount = count)" />
+  <RouterView
+    @cart="
+      (items: Product[]) => {
+        cartCount = items.length
+        cart = items
+      }
+    "
+    :cart="cart"
+  />
 </template>
 
 <style scoped>

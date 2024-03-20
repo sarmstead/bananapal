@@ -20,6 +20,10 @@ a {
   max-width: 175px;
 }
 
+.logo:hover {
+  background: none;
+}
+
 .btn-yellow {
   --bs-btn-font-weight: 600;
   --bs-btn-color: $bp-c-navy;
