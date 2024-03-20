@@ -20,6 +20,12 @@ a {
   max-width: 175px;
 }
 
+.btn-yellow {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: $bp-c-navy;
+  --bs-btn-border-radius: 0;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: $bp-c-yellow;

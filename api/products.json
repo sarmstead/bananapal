@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Apples",
+    "price": 2.5,
+    "unit": "2lb Bag",
+    "image": "./assets/apples.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Pomegranate",
+    "price": 0.5,
+    "unit": "each",
+    "image": "./assets/pomegranate.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Bananas",
+    "price": 0.35,
+    "unit": "lb",
+    "image": "./assets/apples.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Cantaloupe",
+    "price": 2.0,
+    "unit": "each",
+    "image": "./assets/pomegranate.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Currants",
+    "price": 2.5,
+    "unit": "2lb Bag",
+    "image": "./assets/apples.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Blueberry",
+    "price": 0.5,
+    "unit": "2lb bag",
+    "image": "./assets/pomegranate.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Lemon",
+    "price": 0.25,
+    "unit": "lb",
+    "image": "./assets/apples.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Papaya",
+    "price": 1.25,
+    "unit": "each",
+    "image": "./assets/pomegranate.jpg"
+  }
+]
