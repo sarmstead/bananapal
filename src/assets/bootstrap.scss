@@ -1,0 +1,16 @@
+@import '@bootstrap/functions';
+@import '@bootstrap/variables';
+@import '@bootstrap/mixins';
+
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    'white': $bp-c-white,
+    'navy': $bp-c-navy,
+    'yellow': $bp-c-yellow,
+    'blue': $bp-c-blue,
+    'blue-mute': $bp-c-blue-mute
+  )
+);
+
+@import '@bootstrap/bootstrap';

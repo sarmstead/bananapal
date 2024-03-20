@@ -1,5 +1,6 @@
-@import '@bootstrap';
-@import './base.css';
+@import 'colors';
+@import './bootstrap.scss';
+@import './base.scss';
 
 #app {
   max-width: 1280px;
@@ -10,14 +11,18 @@
 
 a {
   text-decoration: underline;
-  color: var(--bp-c-navy);
+  color: $bp-c-navy;
   transition: 0.5s;
   padding: 3px;
 }
 
+.logo {
+  max-width: 175px;
+}
+
 @media (hover: hover) {
   a:hover {
-    background-color: var(--bp-c-yellow);
+    background-color: $bp-c-yellow;
   }
 }
 
