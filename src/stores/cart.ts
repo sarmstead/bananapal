@@ -12,6 +12,7 @@ type Product = {
 
 export const useCartStore = defineStore('cart', () => {
   const cart: Ref<Product[]> = ref([])
+
   const addToCart = (product: Product) => {
     cart.value.push(product)
   }
@@ -20,5 +21,9 @@ export const useCartStore = defineStore('cart', () => {
     cart.value = cart.value.filter((item) => item !== product)
   }
 
-  return { cart, addToCart, removeFromCart }
+  const countItems = (product: Product) => {
+    return cart.value.filter((item) => item === product).length
+  }
+
+  return { cart, addToCart, removeFromCart, countItems }
 })

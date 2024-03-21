@@ -2,15 +2,23 @@
 import { useCartStore } from '@/stores/cart'
 import { storeToRefs } from 'pinia'
 import CloseIcon from '@/components/icons/IconClose.vue'
+import { ref } from 'vue'
+
+const quantity = ref()
 
 const store = useCartStore()
 const { cart } = storeToRefs(store)
+const { countItems } = store
 </script>
 <template>
   <main class="cart">
     <h1 class="fw-bold pb-3 mb-5 border-bottom border-blue">Cart</h1>
     <section class="d-flex flex-column gap-5 gap-sm-2">
-      <article v-for="product in cart" :key="product.id" class="d-flex flex-column flex-sm-row">
+      <article
+        v-for="product in [...new Set(cart)]"
+        :key="product.id"
+        class="d-flex flex-column flex-sm-row"
+      >
         <section
           class="col col-sm-9 order-1 order-sm-0 d-flex flex-column flex-sm-row align-items-center justify-content-sm-start gap-3"
         >
@@ -23,23 +31,11 @@ const { cart } = storeToRefs(store)
           </div>
           <div>
             <h2 class="fw-bold fs-6 mb-2">{{ product.name }}</h2>
-            <div class="d-flex gap-2 align-items-center">
-              <label>Quanity</label>
-              <select class="form-select form-select-sm">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
+            <div class="d-flex align-items-center">
+              <span>{{ countItems(product) }} @&nbsp;</span>
               <p class="mb-0">
                 <span class="fw-bold">{{ `$${product.price}` }}</span
-                >{{ ` / ${product.unit}` }}
+                >{{ `&nbsp;/ ${product.unit}` }}
               </p>
             </div>
           </div>
