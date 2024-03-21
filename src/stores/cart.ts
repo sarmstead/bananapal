@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 
 type Product = {
@@ -25,5 +25,9 @@ export const useCartStore = defineStore('cart', () => {
     return cart.value.filter((item) => item === product).length
   }
 
-  return { cart, addToCart, removeFromCart, countItems }
+  const subTotal = computed(() =>
+    cart.value.reduce((acc, currentValue) => acc + currentValue.price, 0)
+  )
+
+  return { cart, subTotal, addToCart, removeFromCart, countItems }
 })

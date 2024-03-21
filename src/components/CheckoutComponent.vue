@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useCartStore } from '@/stores/cart'
+
+const store = useCartStore()
+const { subTotal } = storeToRefs(store)
+</script>
 <template>
   <form action="">
     <section>
@@ -67,7 +73,7 @@
       </div>
     </section>
     <div class="d-flex justfiy-content-center justify-content-sm-end">
-      <button class="btn btn-yellow w-100 mw-sm-fit">Pay</button>
+      <button class="btn btn-yellow w-100 mw-sm-fit" type="submit">Pay ${{ subTotal }}</button>
     </div>
   </form>
 </template>
