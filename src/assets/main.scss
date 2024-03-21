@@ -39,10 +39,13 @@ main {
   --bs-btn-border-radius: 0;
 }
 
-.form-select {
+.form-control {
   border-radius: 0;
-  max-width: fit-content;
-  border-color: $bp-c-navy;
+  border-color: $bp-c-blue;
+}
+
+.form-control::placeholder {
+  color: transparent;
 }
 
 .mw-fit {

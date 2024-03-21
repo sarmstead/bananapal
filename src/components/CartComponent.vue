@@ -3,13 +3,17 @@ import { storeToRefs } from 'pinia'
 import { useCartStore } from '@/stores/cart'
 import CloseIcon from '@/components/icons/IconClose.vue'
 
+const props = defineProps({ checkout: { type: Boolean, default: false } })
+
 const store = useCartStore()
 const { cart } = storeToRefs(store)
 const { countItems } = store
 </script>
 <template>
   <section class="cart">
-    <h1 class="fw-bold pb-3 mb-5 border-bottom border-blue">Cart</h1>
+    <h1 class="fw-bold pb-3 mb-5 border-bottom border-blue fs-2">
+      {{ !checkout ? 'Cart' : 'Checkout' }}
+    </h1>
     <p class="bg-blue-mute p-2 mt-n3" v-if="cart?.length < 1">No items</p>
     <section class="d-flex flex-column gap-5 gap-sm-2" v-else>
       <article
@@ -52,7 +56,10 @@ const { countItems } = store
           </button>
         </section>
       </article>
-      <div class="checkout d-flex justify-content-center justify-content-sm-end">
+      <div
+        class="checkout d-flex justify-content-center justify-content-sm-end"
+        v-if="!props.checkout"
+      >
         <RouterLink to="/checkout" class="btn btn-yellow w-100 mw-sm-fit">Checkout</RouterLink>
       </div>
     </section>
