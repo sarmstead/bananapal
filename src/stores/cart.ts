@@ -1,6 +1,7 @@
 import type { Ref } from 'vue'
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
+import calculateInitialState from '@/utils/calculateInitialState'
 
 type Product = {
   id: number
@@ -11,14 +12,16 @@ type Product = {
 }
 
 export const useCartStore = defineStore('cart', () => {
-  const cart: Ref<Product[]> = ref([])
+  const cart: Ref<Product[]> = ref(calculateInitialState('cart'))
 
   const addToCart = (product: Product) => {
     cart.value.push(product)
   }
 
   const removeFromCart = (product: Product) => {
-    cart.value = cart.value.filter((item) => item !== product)
+    const filteredItems = cart.value.filter((item) => item !== product)
+    cart.value = filteredItems
+    localStorage.setItem('cart', JSON.stringify(filteredItems))
   }
 
   const countItems = (product: Product) => {
