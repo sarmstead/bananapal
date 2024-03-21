@@ -1,9 +1,9 @@
-const calculateInitialState = (name: string) => {
+const calculateInitialState = (name: string, defaultState: any) => {
   if (localStorage.getItem(name)) {
     return JSON.parse(localStorage.getItem(name) || '{}')
   }
 
-  return []
+  return defaultState
 }
 
 export default calculateInitialState

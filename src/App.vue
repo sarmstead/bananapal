@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { useCartStore } from '@/stores/cart'
+import { useOrderStore } from '@/stores/order'
 import { storeToRefs } from 'pinia'
 import FruitIcon from './components/icons/IconFruit.vue'
 import CartIcon from './components/icons/IconCart.vue'
 
-const store = useCartStore()
-const { cart } = storeToRefs(store)
+const cartStore = useCartStore()
+const { cart } = storeToRefs(cartStore)
+
+useOrderStore()
 </script>
 
 <template>

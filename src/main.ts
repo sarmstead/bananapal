@@ -14,6 +14,7 @@ watch(
   pinia.state,
   (state) => {
     localStorage.setItem('cart', JSON.stringify(state.cart.cart))
+    localStorage.setItem('order', JSON.stringify(state.order.order))
   },
   { deep: true }
 )

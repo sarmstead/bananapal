@@ -12,7 +12,11 @@ type Product = {
 }
 
 export const useCartStore = defineStore('cart', () => {
-  const cart: Ref<Product[]> = ref(calculateInitialState('cart'))
+  const cart: Ref<Product[]> = ref(calculateInitialState('cart', []))
+
+  const subTotal = computed(() =>
+    cart.value.reduce((acc, currentValue) => acc + currentValue.price, 0)
+  )
 
   const addToCart = (product: Product) => {
     cart.value.push(product)
@@ -28,9 +32,10 @@ export const useCartStore = defineStore('cart', () => {
     return cart.value.filter((item) => item === product).length
   }
 
-  const subTotal = computed(() =>
-    cart.value.reduce((acc, currentValue) => acc + currentValue.price, 0)
-  )
+  const $reset = () => {
+    cart.value = []
+    localStorage.removeItem('cart')
+  }
 
-  return { cart, subTotal, addToCart, removeFromCart, countItems }
+  return { cart, subTotal, addToCart, removeFromCart, countItems, $reset }
 })
