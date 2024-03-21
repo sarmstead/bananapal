@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { useCartStore } from '@/stores/cart'
+import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import { useCartStore } from '@/stores/cart'
 import CloseIcon from '@/components/icons/IconClose.vue'
 
 const store = useCartStore()
@@ -44,7 +45,7 @@ const { countItems } = store
         >
           <button
             @click="store.removeFromCart(product)"
-            class="btn max-h-auto text-uppercase d-flex align-items-center gap-2 text-navy"
+            class="btn max-h-auto text-uppercase d-flex align-items-center gap-2 text-navy rounded-0"
             :title="`Remove ${product.name}`"
           >
             <span>Remove</span>
@@ -52,22 +53,23 @@ const { countItems } = store
           </button>
         </section>
       </article>
+      <div class="checkout d-flex justify-content-center justify-content-sm-end">
+        <RouterLink to="/checkout" class="btn btn-yellow w-100 mw-sm-fit">Checkout</RouterLink>
+      </div>
     </section>
   </main>
 </template>
 
 <style scoped>
-.cart {
-  button {
-    height: fit-content;
-    min-height: 48px;
-    font-size: 14px;
-    letter-spacing: 0.7px;
-  }
+.cart article button {
+  height: fit-content;
+  min-height: 48px;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+}
 
-  .cart__item__img {
-    width: 100px;
-    height: 100px;
-  }
+.cart article .cart__item__img {
+  width: 100px;
+  height: 100px;
 }
 </style>

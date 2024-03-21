@@ -16,6 +16,10 @@ a {
   padding: 3px;
 }
 
+a:hover {
+  background-color: $bp-c-yellow;
+}
+
 main {
   max-width: 954px;
   margin: 0 auto;
@@ -41,11 +45,12 @@ main {
   border-color: $bp-c-navy;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: $bp-c-yellow;
-  }
+.mw-fit {
+  max-width: fit-content;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 576px) {
+  .mw-sm-fit {
+    max-width: fit-content;
+  }
 }
