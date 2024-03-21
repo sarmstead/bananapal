@@ -27,7 +27,7 @@ const { addToCart } = store
           <h2 class="fw-bold fs-6 mb-1">{{ product.name }}</h2>
           <p class="mb-3">{{ `$${product.price} / ${product.unit}` }}</p>
 
-          <button class="btn btn-yellow" @click="addToCart(product)">Add to Basket</button>
+          <button class="btn btn-yellow" @click="addToCart(product)">Add to Cart</button>
         </article>
       </div>
     </section>
