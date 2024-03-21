@@ -2,9 +2,6 @@
 import { useCartStore } from '@/stores/cart'
 import { storeToRefs } from 'pinia'
 import CloseIcon from '@/components/icons/IconClose.vue'
-import { ref } from 'vue'
-
-const quantity = ref()
 
 const store = useCartStore()
 const { cart } = storeToRefs(store)
@@ -13,7 +10,8 @@ const { countItems } = store
 <template>
   <main class="cart">
     <h1 class="fw-bold pb-3 mb-5 border-bottom border-blue">Cart</h1>
-    <section class="d-flex flex-column gap-5 gap-sm-2">
+    <p class="bg-blue-mute p-2 mt-n3" v-if="cart?.length < 1">No items</p>
+    <section class="d-flex flex-column gap-5 gap-sm-2" v-else>
       <article
         v-for="product in [...new Set(cart)]"
         :key="product.id"
