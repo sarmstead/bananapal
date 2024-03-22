@@ -1,6 +1,12 @@
-# banana-pal
+# BananaPal
 
-This template should help get you started developing with Vue 3 in Vite.
+Let's face it: going to the grocery store is not as cool as a cucumber 🥒. That's why I built BananaPal 🍌, your friend in the grocery business.
+
+Well, I also built this app because I wanted to try out Vue.js ... but anyways!
+
+## A Note on Credit Card Information
+
+This is a demo application, alright? So don't go throwing around your real credit card number, silly! Plus, the checkout form doesn't actually do any payment processing. So, put whatever numbers and data you'd like - EXCEPT top secret intel from the CIA. Please none of that. Mmmk, thanks!
 
 ## Recommended IDE Setup
 
